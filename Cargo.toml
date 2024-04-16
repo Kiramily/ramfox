@@ -1,0 +1,18 @@
+[package]
+name = "ramfox"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dirs = "5.0.1"
+serde = { version = "1.0.197", features = ["derive"] }
+toml = "0.8.12"
+copycat = { git = "https://github.com/Kiramily/copycat.git" }
+chrono = "0.4.37"
+whoami = "1.5.1"
+libc = "0.2.153"
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+signal-hook = "0.3.17"
