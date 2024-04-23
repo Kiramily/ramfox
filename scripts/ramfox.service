@@ -1,0 +1,9 @@
+[Unit]
+Description=ramfox Service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ramfox
+
+[Install]
+WantedBy=default.target

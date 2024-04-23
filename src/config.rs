@@ -1,4 +1,4 @@
-use std::{fs::read_to_string, path::PathBuf};
+use std::fs::read_to_string;
 
 use serde::Deserialize;
 
@@ -23,12 +23,7 @@ pub struct ProfileSync {
 
 impl Config {
     pub fn parse() -> Self {
-        let path = if cfg!(debug_assertion) {
-            dirs::config_dir().unwrap()
-        } else {
-            PathBuf::from("./tests")
-        }
-        .join("ramfox.toml");
+        let path = dirs::config_dir().unwrap().join("ramfox.toml");
 
         assert!(path.exists(), "Config does not exist!");
 

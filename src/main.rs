@@ -19,9 +19,12 @@ mod scheduler;
 
 fn main() {
     let conf: Config = Config::parse();
-    let subscriber = tracing_subscriber::fmt().pretty().finish();
 
-    tracing::subscriber::set_global_default(subscriber).ok();
+    #[cfg(debug_assertions)]
+    {
+        let subscriber = tracing_subscriber::fmt().pretty().finish();
+        tracing::subscriber::set_global_default(subscriber).ok();
+    }
 
     let home = dirs::home_dir().unwrap().join(".mozilla/firefox");
     let target = home.join(format!("static-{}", &conf.profile.name));
